@@ -1,4 +1,4 @@
-package com.azxx.springstudy.demon;
+package com.azxx.demon;
 
 
 import org.springframework.boot.SpringApplication;
