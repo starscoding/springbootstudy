@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("swagger")
 @Api("swagger 测试")
-public class swaggerController {
+public class SwaggerController {
 
     @ApiOperation("获取用户信息")
     @ApiImplicitParams({
