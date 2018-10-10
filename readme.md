@@ -1,3 +1,7 @@
+# spring boot 注解配置详解
+
+## bean 的分类标识
+
 # swagger ui 配置详解
 
 ## @Api
@@ -66,3 +70,4 @@
 - example 属性的示例值
 - required 是否为必须值
 
+http://api.help.bj.cn/api/
