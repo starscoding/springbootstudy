@@ -3,12 +3,14 @@ package com.azxx.demon.utils;
 import com.azxx.demon.modal.HeWeather;
 import com.azxx.demon.modal.TodayWeather;
 import com.google.gson.*;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
+@Ignore
 public class HttpUtilsTest {
 
     @Test

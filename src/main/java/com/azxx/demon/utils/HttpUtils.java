@@ -1,13 +1,12 @@
 package com.azxx.demon.utils;
 
 import org.apache.http.HttpEntity;
-import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
@@ -16,6 +15,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -26,18 +26,19 @@ public class HttpUtils {
 
     public static String httpGet(String url, Map<String, String> params) {
 
+//        URI uri = new URIBuilder().setScheme("http").setHost("").setPath("").setParameter("name", "xuzheng").build();
         StringBuffer sb = new StringBuffer();
         if (params != null) {
             for (Map.Entry<String, String> entry : params.entrySet()) {
                 String param = entry.getKey() + "=" + entry.getValue();
                 sb.append(param + "&");
             }
-            url = url+"?"+sb.toString();
+            url = url + "?" + sb.toString();
         }
         //1.创建HttpClient
         CloseableHttpClient client = HttpClients.createDefault();
         //2.创建HttpGet
-        HttpGet httpGet = new HttpGet(url );
+        HttpGet httpGet = new HttpGet(url);
         CloseableHttpResponse response = null;
         String content = null;
 

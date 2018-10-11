@@ -42,6 +42,7 @@ public class WeatherJob {
     }
 
     @Scheduled(cron = "0 0 0,6,7,8,12,17,22 * * ? ")
+//    @Scheduled(cron = "0/20 * * * * *")
     public void queryHeWeather(){
         String response = HttpUtils.httpGet(url,null);
         logger.info(response);
@@ -62,12 +63,12 @@ public class WeatherJob {
             tmp = heWeather3;
             result += String.format("时间：%s，最高温度：%s，最低温度：%s，天气状况：%s，紫外线强度：%s.\n",tmp.getDate(),tmp.getTmp_max(),tmp.getTmp_min(),tmp.getCond_txt_d(),tmp.getUv_index());
         }
-        emailService.sendSimpleEmail("xuzheng_13@qq.com","weather report",result);
+        emailService.sendSimpleEmail("xuzheng_13@qq.com","【天气预报】",result);
         logger.info(result);
     }
 
 //    @Scheduled(cron = "0/5 * * * * *")
     public void sendMail(){
-        emailService.sendSimpleEmail("xuzheng_13@qq.com","test","时间：2018-10-10，最高温度：28，最低温度：20，天气状况：阵雨，紫外线强度：4.");
+        emailService.sendSimpleEmail("xuzheng_13@qq.com","【天气预报】","时间：2018-10-10，最高温度：28，最低温度：20，天气状况：阵雨，紫外线强度：4.");
     }
 }
